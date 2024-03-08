@@ -2,6 +2,8 @@ import javax.swing.*;
 
 public class App {
     public static void main(String[] args) {
+//        getName();
+//        sum();
         vector();
     }
 
@@ -27,12 +29,12 @@ public class App {
             String num = JOptionPane.showInputDialog(null, "Digite o número da posição " + position + " :", "Position " + position, -1);
             values[item] = Integer.parseInt(num);
         }
-        StringBuilder message = new StringBuilder();
+        String message = "";
         for (int item = 0; item <= 4; item++) {
             String val = " | " + values[item];
-            message.append(val);
+            message += val;
         }
-        message.append(" | ");
+        message += " | ";
         JOptionPane.showMessageDialog(null, message, "Values", -1);
     }
 }
