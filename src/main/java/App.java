@@ -2,7 +2,7 @@ import javax.swing.*;
 
 public class App {
     public static void main(String[] args) {
-        sum();
+        vector();
     }
 
     private static void getName() {
@@ -18,5 +18,21 @@ public class App {
         double y = Double.parseDouble(num);
         double result = x + y;
         JOptionPane.showMessageDialog(null, "O resultado de " + x + " + " + y + " é " + result, "Result", -1);
+    }
+
+    private static void vector() {
+        int[] values = new int[5];
+        for (int item = 0; item <= 4; item++) {
+            int position = item + 1;
+            String num = JOptionPane.showInputDialog(null, "Digite o número da posição " + position + " :", "Position " + position, -1);
+            values[item] = Integer.parseInt(num);
+        }
+        StringBuilder message = new StringBuilder();
+        for (int item = 0; item <= 4; item++) {
+            String val = " | " + values[item];
+            message.append(val);
+        }
+        message.append(" | ");
+        JOptionPane.showMessageDialog(null, message, "Values", -1);
     }
 }
