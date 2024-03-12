@@ -26,6 +26,8 @@ public class Ex6 {
             message += "Vendedor " + seller + " teve a comissão de venda de R$: " + value + "\n";
         }
 
+        JOptionPane.showMessageDialog();
+
     }
 
 }
