@@ -22,7 +22,8 @@ public class Ex6 {
 
         for (int i = 0; i < 10; i++) {
             int seller = i + 1;
-            message += "Vend";
+            double value = totalSold[i] * percentPerSold[i];
+            message += "Vendedor " + seller + " teve a comissão de venda de R$: " + value;
         }
 
     }
