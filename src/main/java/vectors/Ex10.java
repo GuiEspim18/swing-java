@@ -11,7 +11,7 @@ public class Ex10 {
             for (int column = 0; column < 6; column++) {
                 if (line == 0 || line == 5) {
                     values[line][column] = 1;
-                    result += values[line][column] + " | ";
+                    result += values[line][column] + " ";
                 }
                 if (line == 1 || line == 4) {
                     if (column == 0 || column == 5) {
@@ -19,7 +19,7 @@ public class Ex10 {
                     } else {
                         values[line][column] = 2;
                     }
-                    result += values[line][column] + " | ";
+                    result += values[line][column] + " ";
                 }
                 if (line == 2 || line == 3) {
                     if (column == 0 || column == 5) {
@@ -29,7 +29,7 @@ public class Ex10 {
                     } else {
                         values[line][column] = 3;
                     }
-                    result += values[line][column] + " | ";
+                    result += values[line][column] + " ";
                 }
             }
             result += "\n";
