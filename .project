@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>swing-java</name>
+<<<<<<< HEAD
 	<comment/>
 	<projects/>
 	<buildSpec/>
 	<natures/>
+=======
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+>>>>>>> 37b438a53692d9ff50655d89a723f4ee494cc0ba
 </projectDescription>
