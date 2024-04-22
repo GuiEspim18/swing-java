@@ -8,6 +8,7 @@ public class Menu_GUI {
         int value = Integer.parseInt(JOptionPane.showInputDialog(null, "Escolha uma opção:\n1. Gerar cpf\n2. Validar cpf\n3. Sair"));
         switch (value) {
             case 1:
+                GenerateCPF_GUI.show();
                 break;
             case 2:
                 break;
