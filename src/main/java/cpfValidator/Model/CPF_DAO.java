@@ -4,29 +4,19 @@ import java.util.Random;
 
 public class CPF_DAO {
 
+    private  static int [] digits;
+
     public static boolean validate(String cpf) {
         cpf = cpf.replace(".", "").replace("-", "");
         if (cpf.length() == 11) {
             int digit = Integer.parseInt(cpf.substring(9, 11));
             cpf = cpf.substring(0, 9);
-            int [] digits = new int[11];
+            digits = new int[11];
             for (int i = 0; i < 9; i++) {
                 digits[i] = Integer.parseInt(cpf.substring(i, i + 1));
             }
-            int total = 0;
-            int value = 10;
-            for (int i = 0; i < 9; i++) {
-                total += digits[i] * value;
-                value--;
-            }
-            getDigit(9, digits, total);
-            total = 0;
-            value = 11;
-            for (int i = 0; i < 10; i ++) {
-                total += digits[i] * value;
-                value--;
-            }
-            getDigit(10, digits, total);
+            getDigit(9, getTotal(9));
+            getDigit(10, getTotal(10));
             int lastDigits = Integer.parseInt(digits[9] + "" + digits[10]);
             return lastDigits == digit;
         }
@@ -34,34 +24,24 @@ public class CPF_DAO {
     }
 
     public static String generate() {
-        int[] digits = new int[11];
+        digits = new int[11];
         Random random = new Random();
-        int total = 0;
-        int value = 10;
         for (int i = 0; i < 9; i++) {
             digits[i] = random.nextInt(9);
-            total += digits[i] * value;
-            value--;
         }
-        getDigit(9, digits, total);
-        total = 0;
-        value = 11;
-        for (int i = 0; i < 10; i++) {
-            total += digits[i] * value;
-            value--;
-        }
-        getDigit(10, digits, total);
+        getDigit(9, getTotal(9));
+        getDigit(10, getTotal(10));
         return generateString(digits);
     }
 
-    private static void getDigit(int index, int[] generated, int total) {
+    private static void getDigit(int index, int total) {
         int left = total % 11;
         if (left < 2) {
-            generated[index] = 0;
+            digits[index] = 0;
         } else {
-            generated[index] = left - 11;
-            if (generated[index] < 0) {
-                generated[index] = generated[index] * -1;
+            digits[index] = left - 11;
+            if (digits[index] < 0) {
+                digits[index] = digits[index] * -1;
             }
         }
     }
@@ -81,6 +61,16 @@ public class CPF_DAO {
             result += values[i];
         }
         return result;
+    }
+
+    private static int getTotal(int max) {
+        int total = 0;
+        int value = max + 1;
+        for (int i = 0; i < max; i++) {
+            total += digits[i] * value;
+            value--;
+        }
+        return total;
     }
 
 }
