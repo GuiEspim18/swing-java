@@ -13,7 +13,7 @@ public class Menu_GUI {
                     GenerateCPF_GUI.show();
                     break;
                 case 2:
-                    
+                    ValidateCPF_GUI.show();
                     break;
                 case 3:
                     JOptionPane.showMessageDialog(null, "Até mais!");

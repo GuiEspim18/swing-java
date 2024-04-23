@@ -1,11 +1,14 @@
 package cpfValidator.View;
 
+import cpfValidator.Model.CPF_DAO;
+
 import javax.swing.*;
 
 public class ValidateCPF_GUI {
 
     public static void show() {
-        JOptionPane.showInputDialog(null, "Digite um cpf:");
+        String cpf = JOptionPane.showInputDialog(null, "Digite um cpf:");
+        CPF_DAO.validate(cpf);
     }
 
 }

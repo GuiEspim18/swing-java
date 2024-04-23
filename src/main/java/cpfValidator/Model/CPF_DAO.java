@@ -5,6 +5,31 @@ import java.util.Random;
 public class CPF_DAO {
 
     public static boolean validate(String cpf) {
+        cpf = cpf.replace(".", "").replace("-", "");
+        if (cpf.length() == 11) {
+            int digit = Integer.parseInt(cpf.substring(9, 11));
+            cpf = cpf.substring(0, 9);
+            int [] digits = new int[11];
+            for (int i = 0; i < 9; i++) {
+                digits[i] = Integer.parseInt(cpf.substring(i, i + 1));
+            }
+            int total = 0;
+            int value = 10;
+            for (int i = 0; i < 9; i++) {
+                total += digits[i] * value;
+                value--;
+            }
+            getDigit(9, digits, total);
+            total = 0;
+            value = 11;
+            for (int i = 0; i < 10; i ++) {
+                total += digits[i] * value;
+                value--;
+            }
+            getDigit(10, digits, total);
+            int lastDigits = Integer.parseInt(digits[9] + "" + digits[10]);
+            return lastDigits == digit;
+        }
         return false;
     }
 
