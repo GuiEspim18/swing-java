@@ -8,7 +8,12 @@ public class ValidateCPF_GUI {
 
     public static void show() {
         String cpf = JOptionPane.showInputDialog(null, "Digite um cpf:");
-        CPF_DAO.validate(cpf);
+        boolean isValid = CPF_DAO.validate(cpf);
+        if (isValid) {
+            JOptionPane.showMessageDialog(null, "Este CPF é verdadeiro!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Este CPF é falso!");
+        }
     }
 
 }
