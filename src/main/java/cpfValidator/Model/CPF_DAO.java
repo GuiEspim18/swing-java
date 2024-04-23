@@ -9,30 +9,53 @@ public class CPF_DAO {
     }
 
     public static String generate() {
-        int[] values = { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
-        int[] generated = new int[11];
+        int[] digits = new int[11];
         Random random = new Random();
         int total = 0;
+        int value = 10;
         for (int i = 0; i < 9; i++) {
-            int value = random.nextInt(9) * (values[i]);
-            generated[i] = value;
-            total += value;
+            digits[i] = random.nextInt(9);
+            total += digits[i] * value;
+            value--;
         }
+        getDigit(9, digits, total);
+        total = 0;
+        value = 11;
+        for (int i = 0; i < 10; i++) {
+            total += digits[i] * value;
+            value--;
+        }
+        getDigit(10, digits, total);
+        return generateString(digits);
+    }
+
+    private static void getDigit(int index, int[] generated, int total) {
         int left = total % 11;
         if (left < 2) {
-            generated[10] = 0;
+            generated[index] = 0;
         } else {
-            generated[10]  = left - 11;
-            if (generated[10] < 0) {
-                generated[10]  = generated[10]  * -1;
+            generated[index] = left - 11;
+            if (generated[index] < 0) {
+                generated[index] = generated[index] * -1;
             }
         }
-        values[10] = 11;
-        for (int i = 0; i < 10; i++) {
+    }
 
+    private static String generateString(int[] values) {
+        String result = "";
+        int dots = 0;
+        for (int i = 0; i < 11; i++) {
+            if (i > 0 && (i % 3 == 0)) {
+                if (dots < 2) {
+                    result += ".";
+                    dots++;
+                } else {
+                    result += "-";
+                }
+            }
+            result += values[i];
         }
-//        System.out.println(digit2);
-        return "";
+        return result;
     }
 
 }
