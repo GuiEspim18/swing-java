@@ -1,16 +1,24 @@
 package Airline.View;
 
+import Airline.Model.Flight;
+
 import javax.swing.*;
 
 public class Menu_GUI {
 
+    private static int max = 10;
+    private static Flight[] flights = new Flight[max];
+    private static int flightsRegistered = 0;
+
     public static void show() {
         boolean exit = false;
+
         while (!exit) {
             try {
                 int option = choose();
                 switch (option) {
                     case 1:
+                        register();
                         break;
                     case 2:
                         break;
@@ -27,6 +35,7 @@ public class Menu_GUI {
                         break;
                 }
             } catch (Exception e) {
+                e.printStackTrace();
                 error("<Erro>: Digite um digito ao invés de um caracter!");
             }
         }
@@ -40,6 +49,17 @@ public class Menu_GUI {
             message += "(" + index + ") " + options[i] + "\n";
         }
         return Integer.parseInt(JOptionPane.showInputDialog(null, message));
+    }
+
+    public static void register() {
+        if (flightsRegistered < max) {
+            Flight flight = Register_GUI.show();
+            flights[flightsRegistered] = flight;
+            System.out.println(flights[flightsRegistered]);
+            flightsRegistered++;
+        } else {
+            error("<Erro> Você só pode cadastrar até " + max + " voos!");
+        }
     }
 
     private static void error(String message) {
