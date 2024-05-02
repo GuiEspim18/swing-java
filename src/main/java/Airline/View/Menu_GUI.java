@@ -24,6 +24,7 @@ public class Menu_GUI {
                         break;
                     default:
                         error("<Erro> Digite um digito válido!");
+                        break;
                 }
             } catch (Exception e) {
                 error("<Erro>: Digite um digito ao invés de um caracter!");
