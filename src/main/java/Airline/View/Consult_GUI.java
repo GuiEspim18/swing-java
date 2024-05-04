@@ -1,14 +1,14 @@
 package Airline.View;
 
-import Airline.Model.Flight;
+import Airline.Model.Flight_DAO;
 
 import javax.swing.*;
 
 public class Consult_GUI {
 
-    public Flight[] flights;
+    public Flight_DAO[] flights;
 
-    public Consult_GUI(Flight[] flights) {
+    public Consult_GUI(Flight_DAO[] flights) {
         this.flights = flights;
     }
 
@@ -26,7 +26,7 @@ public class Consult_GUI {
         }
     }
 
-    public void perFlightNumber() {
+    private void perFlightNumber() {
         try {
             int number = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o número do voo: "));
             boolean found = false;
@@ -45,7 +45,7 @@ public class Consult_GUI {
         }
     }
 
-    public void perOrigin() {
+    private void perOrigin() {
         try {
             String origin = JOptionPane.showInputDialog(null, "Digite a origem do voo:");
             if (origin.isBlank() || origin.isEmpty()) {
@@ -67,7 +67,7 @@ public class Consult_GUI {
         }
     }
 
-    public void perDestination() {
+    private void perDestination() {
         try {
             String destination = JOptionPane.showInputDialog(null, "Digite o destino do voo:");
             if (destination.isBlank() || destination.isEmpty()) {
@@ -89,7 +89,7 @@ public class Consult_GUI {
         }
     }
 
-    private void show(Flight flight) {
+    private void show(Flight_DAO flight) {
         String message = "Número: " + flight.number + "\nOrigem: " + flight.origin + "\nDestino: " + flight.destination + "\n\nAssentos:\n";
         String line = "";
         for (int i = 0; i < 6; i++) {

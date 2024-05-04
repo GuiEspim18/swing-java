@@ -1,6 +1,6 @@
 package Airline.Model;
 
-public class Flight {
+public class Flight_DAO {
 
     public String destination;
     public String origin;
@@ -11,13 +11,13 @@ public class Flight {
             {false}, {false}
     };
 
-    public Flight(int number, String origin, String destination) {
+    public Flight_DAO(int number, String origin, String destination) {
         this.number = number;
         this.origin = origin;
         this.destination = destination;
     }
 
-    public Flight() {
+    public Flight_DAO() {
     }
 
 }

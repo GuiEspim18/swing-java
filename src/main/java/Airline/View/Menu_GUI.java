@@ -1,21 +1,21 @@
 package Airline.View;
 
-import Airline.Model.Flight;
+import Airline.Model.Flight_DAO;
 
 import javax.swing.*;
 
 public class Menu_GUI {
 
-    private static Flight[] flights = {
-            new Flight(1, "Guarulhos - Brasil", "Lisboa - Portugal"),
-            new Flight(2, "São Paulo - Brasil", "Cancún - México"),
-            new Flight(3, "Rio de Janeiro - Brasil", "Madrid - Espanha"),
-            new Flight(4, "Salvador - Brasil", "Natal - Brasil"),
-            new Flight(5, "Berlin - Alemanha", "São Paulo - Brasil"),
-            new Flight(6, "Natal - Brasil", "Orlando - EUA"),
-            new Flight(8, "Curitiba - Brasil", "Paris - França"),
-            new Flight(9, "Santa Catarina - Brasil", "Tokio - Japão"),
-            new Flight(10, "Campinas - Brasil", "Los Angeles - EUA")
+    private static Flight_DAO[] flights = {
+            new Flight_DAO(1, "Guarulhos - Brasil", "Lisboa - Portugal"),
+            new Flight_DAO(2, "São Paulo - Brasil", "Cancún - México"),
+            new Flight_DAO(3, "Rio de Janeiro - Brasil", "Madrid - Espanha"),
+            new Flight_DAO(4, "Salvador - Brasil", "Natal - Brasil"),
+            new Flight_DAO(5, "Berlin - Alemanha", "São Paulo - Brasil"),
+            new Flight_DAO(6, "Natal - Brasil", "Orlando - EUA"),
+            new Flight_DAO(8, "Curitiba - Brasil", "Paris - França"),
+            new Flight_DAO(9, "Santa Catarina - Brasil", "Tokio - Japão"),
+            new Flight_DAO(10, "Campinas - Brasil", "Los Angeles - EUA")
     };
 
     public static void show() {
